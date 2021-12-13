@@ -8,7 +8,6 @@ You load clipmon.cna in your cobaltstrike and you have 3 new commands :
 - dumpclip : Dump the content of the clipboard and send the output to an operator
 - set-clipboard-data : Change the content of a clipboard
 - clipmon : Monitor the clipboard. For each clipboard updated, you have the content of the clipboard, the current window and the date with hours.
-
 ⚠️ clipmon is reflective dll launched as post-exploitation jobs with bdllspawn function (.cna script). cobaltstrike have a buffer to receive output of reflective dll, you don't receive it directly.
 
 # Compilation information
