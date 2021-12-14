@@ -54,12 +54,6 @@ alias dumpclip
 }
 
 beacon_command_register(
-	"overload-clip",
-	"Overload the content of clipboard to force a output for monitoring",
-	"Usage : overload-clip" 
-);
-
-beacon_command_register(
 	"clipmon",
 	"Launch reflective dll has post-ex jobs to monitor the clipboard",
 	"Usage : clipmon" 
