@@ -1,21 +1,22 @@
 # Cobalt-Clip
 
-Cobalt-clip is clipboard addons for cobaltstrike to interact with clipboard. With this you can dump, edit and monitor the content of q clipboard.
+Cobalt-Clip is clipboard add-on for Cobalt Strike to interact with the victim's clipboard. With Cobalt-Clip you can dump, edit and monitor the content of a clipboard.
 
 # How to use
 
-You load clipmon.cna in your cobaltstrike and you have 3 new commands :
-- dumpclip : Dump the content of the clipboard and send the output to an operator
-- set-clipboard-data : Change the content of a clipboard
-- clipmon : Monitor the clipboard. For each clipboard updated, you have the content of the clipboard, the current window and the date with hours.
-⚠️ clipmon is reflective dll launched as post-exploitation jobs with bdllspawn function (.cna script). cobaltstrike have a buffer to receive output of reflective dll, you don't receive it directly.
+Load clipmon.cna in Cobalt Strike to get 3 new commands :
+- dumpclip : Dump the clipboard's content and send the output to an operator.
+- set-clipboard-data : Modify the content of a victim's clipboard.
+- clipmon : Monitor the clipboard. When the clipboard is updated, you receive the contents of the clipboard, the current window and the date with hours.
+⚠️ clipmon is a reflective dll launched as a post-exploitation job with the bdllspawn function (.cna script). Cobalt Strike has a buffer to receive output from the reflective dll. You don't receive it directly.
 
 # Compilation information
 
-For dumpclip and set-clipboard-data.
-Iis Beacon Object Files, you have a .sh script to compil in x64. 
-For clipmon.
-It was made on visualstudio. the source code was based on : https://github.com/stephenfewer/ReflectiveDLLInjection.
+For dumpclip and set-clipboard-data:\
+It's Beacon Object Files, you have a .sh script to compile in x64.\
+\
+For clipmon:\
+It was made in Visual Studio. The source code was based on : https://github.com/stephenfewer/ReflectiveDLLInjection.
 
 # Credits
 
