@@ -8,7 +8,7 @@ Load clipmon.cna in Cobalt Strike to get 3 new commands :
 - dumpclip : Dump the clipboard's content and send the output to an operator.
 - set-clipboard-data : Modify the content of a victim's clipboard.
 - clipmon : Monitor the clipboard. When the clipboard is updated, you receive the contents of the clipboard, the current window and the date with hours.
-⚠️ clipmon is a reflective dll launched as a post-exploitation job with bdllspawn function (.cna script). Cobalt Strike has a buffer to receive output from the reflective dll. You don't receive it directly.
+⚠️ clipmon is a reflective dll launched as a post-exploitation job with the bdllspawn function (.cna script). Cobalt Strike has a buffer to receive output from the reflective dll. You don't receive it directly.
 
 # Compilation information
 
