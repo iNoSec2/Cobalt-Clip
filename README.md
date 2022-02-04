@@ -13,7 +13,7 @@ Load clipmon.cna in Cobalt Strike to get 3 new commands :
 # Compilation information
 
 For dumpclip and set-clipboard-data:\
-IIS Beacon Object Files, you have a .sh script to compil in x64.\
+It's Beacon Object Files, you have a .sh script to compile in x64.\
 \
 For clipmon:\
 It was made in Visual Studio. The source code was based on : https://github.com/stephenfewer/ReflectiveDLLInjection.
